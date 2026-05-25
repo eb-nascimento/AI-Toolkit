@@ -126,6 +126,20 @@ Exemplos:
 
 A skill deve orientar a tarefa, mas não substituir a análise do contexto real do projeto.
 
+## Uso obrigatório do SDD Specialist
+
+Em qualquer prompt que envolva desenvolvimento, correção, refatoração, interface, backend, testes, revisão técnica ou alteração de comportamento, usar o agente `sdd-specialist` como referência de fluxo.
+
+O `sdd-specialist` deve garantir que:
+
+- `docs/SDD-origin.md` seja tratado como fonte de verdade para requisitos, regras, fluxos e decisões validadas.
+- `docs/SDD-dev.md` registre apenas o escopo realmente tratado na implementação atual.
+- Requisitos vagos sejam aprofundados antes da implementação.
+- Critérios de aceite e validações esperadas sejam definidos de forma verificável.
+- Nenhuma regra de negócio seja alterada sem confirmação.
+
+Quando o pedido chegar como história, ideia ou requisito incompleto, usar também a skill `requirement-discovery` para aprofundar o requisito, definir critérios de aceite e indicar os testes necessários para aprovação.
+
 ## Uso de MCP e ferramentas externas
 
 Quando houver MCP ou ferramenta externa disponível:

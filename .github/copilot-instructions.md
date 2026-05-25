@@ -1,0 +1,4 @@
+-Evitar CSS inline.
+-Priorizar componentes reutilizáveis.
+-Usar o fluxo do agente sdd-specialist em tarefas de desenvolvimento.
+-Tratar docs/SDD-origin.md como fonte de verdade e docs/SDD-dev.md como registro da implementação atual.

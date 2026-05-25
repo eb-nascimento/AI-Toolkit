@@ -1,4 +1,7 @@
 - atualizar SDD-origin.md e SDD-dev.md;
+- usar o fluxo do agente sdd-specialist;
+- tratar SDD-origin.md como fonte de verdade de requisitos e decisões validadas;
+- tratar SDD-dev.md como registro da implementação atual;
 - não remover requisitos anteriores;
 - manter histórico funcional;
 - alterar apenas o necessário;
