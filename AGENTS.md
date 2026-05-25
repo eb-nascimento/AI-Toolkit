@@ -1,46 +1,74 @@
 # Instruções para Agentes de IA
 
-Este arquivo define orientações gerais para agentes de IA utilizados no apoio ao desenvolvimento de software.
+Este repositório é uma base reutilizável para novos projetos com apoio de IA. Ele não é uma aplicação final; preserve a estrutura para que possa ser copiada, adaptada e usada em projetos futuros.
 
-O objetivo é garantir que respostas, alterações de código, revisões e sugestões sejam úteis, seguras, rastreáveis e alinhadas às boas práticas da equipe.
+O objetivo é garantir que respostas, alterações de código, revisões e sugestões sejam úteis, seguras, rastreáveis e alinhadas ao fluxo SDD do projeto que estiver usando esta base.
 
-## Princípios gerais
+---
+
+## Princípios Gerais
 
 - Atuar como apoio técnico ao desenvolvimento, não como substituto da análise humana.
-- Priorizar clareza, segurança, manutenção e rastreabilidade.
+- Priorizar clareza, segurança, manutenção, rastreabilidade e aprendizado.
 - Evitar alterações desnecessárias ou fora do escopo solicitado.
-- Preservar funcionalidades existentes.
-- Não remover código, testes, documentação ou regras de negócio sem justificativa clara.
+- Preservar funcionalidades, contratos, testes, documentação e regras de negócio existentes.
 - Não assumir requisitos não informados.
 - Quando houver dúvida relevante, sinalizar antes de alterar.
+- Para dúvidas pequenas, sem impacto em regra, contrato, dados, permissões ou fluxo crítico, registrar a premissa e seguir com a solução mais conservadora.
 - Responder com objetividade e resumo curto ao final das alterações.
 
-## Escopo de alteração
+---
+
+## Fluxo SDD Obrigatório
+
+Toda tarefa de desenvolvimento, correção, refatoração, interface, backend, teste, revisão técnica ou alteração de comportamento deve considerar o fluxo SDD.
+
+Este repositório mantém somente dois arquivos SDD canônicos:
+
+- `docs/SDD-origin.md`: fonte de verdade para requisitos, regras, decisões validadas, fluxos, entidades, permissões e limitações do projeto real.
+- `docs/SDD-dev.md`: registro da implementação atual, preenchido com o escopo realmente tratado, decisões, impactos, validações e pendências.
+
+Regras:
+
+- Não criar arquivos `SDD-*.template.md`; os dois arquivos SDD ativos já são os modelos base.
+- Não registrar no SDD comportamento que não foi implementado ou validado.
+- Não usar `SDD-origin.md` como changelog de implementação.
+- Não usar `SDD-dev.md` para antecipar requisitos ainda não tratados.
+- Se algum arquivo SDD não existir no projeto derivado, sinalizar a ausência e propor criação mínima antes de registrar decisões.
+- Ao alterar este repositório-base, preservar os SDDs como modelos limpos, salvo solicitação explícita para registrar um exemplo preenchido.
+
+---
+
+## Escopo de Alteração
 
 Antes de modificar qualquer arquivo:
 
 - Entender o objetivo da tarefa.
-- Identificar os arquivos relacionados.
+- Identificar requisito, critério de aceite e validação esperada.
+- Identificar arquivos relacionados.
 - Evitar alterações amplas quando uma correção pontual resolver.
 - Não editar arquivos fora do escopo sem necessidade.
 - Não misturar refatoração com correção de bug, a menos que solicitado.
 - Não criar novos padrões se o projeto já possuir um padrão estabelecido.
 
-## Forma de edição
+---
 
-- Não editar linha por linha quando a alteração puder ser aplicada de forma consolidada.
-- Aplicar mudanças em bloco único ou em alterações coesas.
+## Forma de Edição
+
+- Aplicar alterações em blocos coesos, pequenos e revisáveis.
 - Evitar múltiplas microalterações que dificultem revisão.
-- Manter o código legível e consistente com o estilo do projeto.
+- Manter código e documentação legíveis, consistentes e alinhados ao estilo do projeto.
 - Preservar nomes, contratos, estruturas e padrões já utilizados.
 - Não reformatar arquivos inteiros sem necessidade.
+
+---
 
 ## Código
 
 Ao criar ou alterar código:
 
 - Seguir a arquitetura e os padrões existentes.
-- Priorizar soluções simples e compreensíveis.
+- Priorizar soluções simples, compreensíveis e incrementais.
 - Evitar overengineering.
 - Não introduzir dependências externas sem solicitação.
 - Tratar erros de forma clara.
@@ -50,9 +78,11 @@ Ao criar ou alterar código:
 - Preservar contratos de APIs, funções, componentes e tipos existentes.
 - Não alterar regras de negócio sem solicitação explícita.
 
-## Testes
+---
 
-Quando a tarefa envolver código funcional:
+## Testes e Validações
+
+Quando a tarefa envolver comportamento funcional:
 
 - Verificar se já existem testes relacionados.
 - Criar ou ajustar testes quando fizer sentido.
@@ -60,6 +90,9 @@ Quando a tarefa envolver código funcional:
 - Considerar cenários positivos, negativos e casos de borda.
 - Não remover testes existentes sem justificativa.
 - Informar quando não for possível executar testes.
+- Se a validação não puder ser executada, não declarar a tarefa como validada; registrar limitação, risco e teste pendente.
+
+---
 
 ## Documentação
 
@@ -70,6 +103,8 @@ Quando a alteração impactar funcionamento, arquitetura, requisitos ou uso:
 - Não documentar comportamento que não foi implementado.
 - Não remover histórico ou decisões importantes sem solicitação.
 - Registrar limitações, premissas e pontos pendentes quando necessário.
+
+---
 
 ## Frontend
 
@@ -84,6 +119,8 @@ Ao atuar em interfaces:
 - Não alterar layout visual de forma ampla sem solicitação.
 - Validar estados de loading, erro, vazio, sucesso e disabled quando aplicável.
 
+---
+
 ## Backend
 
 Ao atuar em backend:
@@ -96,6 +133,8 @@ Ao atuar em backend:
 - Evitar mudanças que quebrem integrações existentes.
 - Manter consistência com padrões de rotas, services, repositories e middlewares do projeto.
 
+---
+
 ## Segurança
 
 - Não expor chaves, tokens, credenciais ou dados sensíveis.
@@ -105,42 +144,23 @@ Ao atuar em backend:
 - Sinalizar riscos quando identificados.
 - Usar variáveis de ambiente para configurações sensíveis.
 
-## Git e revisão
+---
 
-Ao preparar alterações:
+## Uso de Agentes e Skills
 
-- Manter mudanças pequenas e revisáveis.
-- Explicar o que foi alterado.
-- Separar correção, refatoração e nova funcionalidade quando possível.
-- Não criar commits ou PRs sem solicitação.
-- Quando solicitado, sugerir mensagem de commit clara e objetiva.
-
-## Uso de skills
-
-Quando houver uma skill aplicável, utilizá-la como referência.
-
-Exemplos:
-
-- `frontend-accessibility`: para criação ou revisão de interfaces acessíveis.
-- `test-generation`: para criação, revisão ou ampliação de testes automatizados.
+- Use `sdd-specialist` para delimitar requisito, escopo, critérios de aceite, validações e atualização do SDD.
+- Use `frontend-specialist` para interfaces, componentes, UX, responsividade e acessibilidade.
+- Use `test-engineer` para testes, cenários, validações e riscos de regressão.
+- Use `code-reviewer` para revisão técnica, arquitetura, segurança, regressão e qualidade.
+- Use `frontend-accessibility` para revisão de acessibilidade em interfaces.
+- Use `test-generation` para criação ou revisão de testes automatizados.
+- Use `requirement-discovery` quando a solicitação estiver vaga ou incompleta.
 
 A skill deve orientar a tarefa, mas não substituir a análise do contexto real do projeto.
 
-## Uso obrigatório do SDD Specialist
+---
 
-Em qualquer prompt que envolva desenvolvimento, correção, refatoração, interface, backend, testes, revisão técnica ou alteração de comportamento, usar o agente `sdd-specialist` como referência de fluxo.
-
-O `sdd-specialist` deve garantir que:
-
-- `docs/SDD-origin.md` seja tratado como fonte de verdade para requisitos, regras, fluxos e decisões validadas.
-- `docs/SDD-dev.md` registre apenas o escopo realmente tratado na implementação atual.
-- Requisitos vagos sejam aprofundados antes da implementação.
-- Critérios de aceite e validações esperadas sejam definidos de forma verificável.
-- Nenhuma regra de negócio seja alterada sem confirmação.
-
-Quando o pedido chegar como história, ideia ou requisito incompleto, usar também a skill `requirement-discovery` para aprofundar o requisito, definir critérios de aceite e indicar os testes necessários para aprovação.
-
-## Uso de MCP e ferramentas externas
+## Uso de MCP e Ferramentas Externas
 
 Quando houver MCP ou ferramenta externa disponível:
 
@@ -150,15 +170,25 @@ Quando houver MCP ou ferramenta externa disponível:
 - Informar quando uma ferramenta falhar ou não estiver disponível.
 - Não simular sucesso quando a consulta externa não ocorreu.
 
-## Resposta esperada ao concluir tarefas
+---
+
+## Resposta Esperada ao Concluir Tarefas
 
 Ao concluir uma tarefa, responder preferencialmente com:
 
-- Resumo do que foi alterado.
+- Requisito tratado.
+- Escopo realizado.
+- Arquivos alterados.
+- Critérios de aceite atendidos.
 - Validações realizadas.
-- Observações, limitações, riscos ou próximos passos.
+- Validações pendentes, se houver.
+- Atualizações feitas em `SDD-dev.md`, quando aplicável.
+- Atualizações feitas em `SDD-origin.md`, somente se aplicável.
+- Riscos, premissas ou decisões que exigem validação humana.
 
-## Restrições importantes
+---
+
+## Restrições Importantes
 
 - Não remover funcionalidades existentes sem solicitação explícita.
 - Não alterar regra de negócio sem confirmação.
@@ -168,7 +198,9 @@ Ao concluir uma tarefa, responder preferencialmente com:
 - Não inventar arquivos, APIs, telas ou comportamentos.
 - Não ocultar falhas, incertezas ou limitações.
 
-## Preferências de execução
+---
+
+## Preferências de Execução
 
 - Alterar somente o necessário.
 - Ser objetivo.

@@ -1,19 +1,23 @@
-# SDD - Base para Preenchimento
+# SDD Origin - Fonte de Verdade
 
-> Documento base para especificacao de sistema.
-> Preencha somente com requisitos, decisoes e escopos validados.
+> Este é um dos dois arquivos SDD canônicos deste repositório-base.
+> Preencha este arquivo no projeto real somente com requisitos, regras, fluxos e decisões validadas.
+> Não use este arquivo como changelog de implementação.
 
-## 1. Introducao
+## 1. Identificação
 
-Descreva o sistema, produto ou modulo documentado.
+- Sistema / Produto / Módulo:
+- Responsável pela validação:
+- Data da última validação:
+- Status:
 
 ## 2. Objetivo
 
-Descreva o objetivo principal do sistema.
+Descreva o objetivo principal do sistema ou módulo.
 
 ## 3. Contexto e problema
 
-Descreva o contexto, o problema que sera resolvido e os usuarios impactados.
+Descreva o problema resolvido, o contexto de uso e os usuários impactados.
 
 ## 4. Escopo
 
@@ -25,15 +29,15 @@ Descreva o contexto, o problema que sera resolvido e os usuarios impactados.
 
 -
 
-## 5. Publico-alvo / usuarios
+## 5. Público-alvo / usuários
 
 -
 
 ## 6. Requisitos funcionais
 
-### RF01 -
+### RF01 - Nome do requisito
 
-Descreva o requisito funcional.
+Descrição do requisito.
 
 #### Regras
 
@@ -43,17 +47,17 @@ Descreva o requisito funcional.
 
 -
 
-#### Criterios de aceite
+#### Critérios de aceite
 
-- Dado , quando , entao .
+- Dado que ..., quando ..., então ...
 
-## 7. Requisitos nao funcionais
+## 7. Requisitos não funcionais
 
 ### Performance
 
 -
 
-### Seguranca
+### Segurança
 
 -
 
@@ -67,7 +71,7 @@ Descreva o requisito funcional.
 
 ## 8. Fluxos principais
 
-### Fluxo 1 -
+### Fluxo 1 - Nome do fluxo
 
 1.
 2.
@@ -75,24 +79,24 @@ Descreva o requisito funcional.
 
 ## 9. Dados e entidades
 
-### Entidade -
+### Entidade
 
 - Campo:
 - Tipo:
-- Obrigatorio:
-- Observacoes:
+- Obrigatório:
+- Observações:
 
-## 10. Integracoes
+## 10. Integrações
 
-### Integracao -
+### Integração
 
 - Sistema externo:
 - Finalidade:
 - Entrada:
-- Saida:
+- Saída:
 - Tratamento de erro:
 
-## 11. Permissoes e seguranca
+## 11. Permissões e segurança
 
 -
 
@@ -104,7 +108,7 @@ Descreva o requisito funcional.
 - Sucesso:
 - Disabled:
 
-## 13. Riscos, premissas e limitacoes
+## 13. Riscos, premissas e limitações
 
 ### Riscos
 
@@ -114,10 +118,10 @@ Descreva o requisito funcional.
 
 -
 
-### Limitacoes
+### Limitações
 
 -
 
-## 14. Pendencias e decisoes em aberto
+## 14. Pendências e decisões em aberto
 
 -

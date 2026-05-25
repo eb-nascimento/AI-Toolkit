@@ -7,9 +7,13 @@ description: Use esta skill ao criar, revisar, refatorar ou ampliar testes autom
 
 Use esta skill para orientar a criação e revisão de testes automatizados em projetos de software.
 
+---
+
 ## Objetivo
 
 Garantir que novas funcionalidades, correções e refatorações sejam acompanhadas por testes claros, úteis e sustentáveis, reduzindo regressões e aumentando a confiança nas alterações.
+
+---
 
 ## Regras principais
 
@@ -23,6 +27,9 @@ Garantir que novas funcionalidades, correções e refatorações sejam acompanha
 - Criar testes pequenos, legíveis e objetivos.
 - Usar nomes descritivos para os cenários testados.
 - Quando não for possível testar algo, explicar a limitação.
+- Não editar linha por linha; aplicar alterações em bloco único/consolidado.
+
+---
 
 ## Checklist de análise
 
@@ -30,140 +37,109 @@ Garantir que novas funcionalidades, correções e refatorações sejam acompanha
 
 Antes de criar testes, identificar:
 
-- Qual comportamento precisa ser validado.
-- Qual alteração foi feita no código.
-- Quais fluxos podem quebrar.
-- Quais entradas e saídas são esperadas.
-- Quais regras de negócio estão envolvidas.
-- Quais dependências externas precisam ser simuladas.
+- qual comportamento precisa ser validado;
+- qual alteração foi feita no código;
+- quais fluxos podem quebrar;
+- quais entradas e saídas são esperadas;
+- quais regras de negócio estão envolvidas;
+- quais dependências externas precisam ser simuladas;
+- quais critérios de aceite estão definidos no SDD.
 
 ### Tipos de teste
 
 Avaliar qual tipo de teste faz mais sentido:
 
-- Teste unitário para funções, métodos e regras isoladas.
-- Teste de componente para interface e comportamento visual/interativo.
-- Teste de integração para comunicação entre módulos.
-- Teste de API para contratos, status codes e payloads.
-- Teste end-to-end para fluxos críticos do usuário.
-- Teste de regressão para bugs corrigidos.
-- Teste de acessibilidade quando houver impacto em interface.
+- teste unitário para funções, métodos e regras isoladas;
+- teste de componente para interface e comportamento visual/interativo;
+- teste de integração para comunicação entre módulos;
+- teste de API para contratos, status codes e payloads;
+- teste end-to-end para fluxos críticos do usuário;
+- teste de regressão para bugs corrigidos;
+- teste de acessibilidade quando houver impacto em interface.
 
 ### Casos positivos
 
 Verificar se os testes cobrem:
 
-- Fluxo principal esperado.
-- Entrada válida.
-- Resposta ou renderização correta.
-- Estado final esperado.
-- Chamadas corretas a funções, serviços ou APIs quando aplicável.
+- fluxo principal esperado;
+- entrada válida;
+- resposta ou renderização correta;
+- estado final esperado;
+- chamadas corretas a funções, serviços ou APIs quando aplicável.
 
 ### Casos negativos
 
 Verificar se os testes cobrem:
 
-- Entrada inválida.
-- Dados ausentes.
-- Erros de validação.
-- Falha de API ou serviço externo.
-- Permissão insuficiente.
-- Usuário não autenticado.
-- Estado vazio.
-- Timeout ou indisponibilidade quando aplicável.
+- entrada inválida;
+- dados ausentes;
+- erros de validação;
+- falha de API ou serviço externo;
+- permissão insuficiente;
+- usuário não autenticado;
+- estado vazio;
+- timeout ou indisponibilidade quando aplicável.
 
 ### Casos de borda
 
 Considerar:
 
-- Valores nulos ou indefinidos.
-- Lista vazia.
-- Lista com um item.
-- Lista com muitos itens.
-- Datas no limite.
-- Valores mínimos e máximos.
-- Strings vazias ou muito longas.
-- Caracteres especiais.
-- Diferenças de timezone quando houver datas.
-- Duplicidade de dados.
-- Estados concorrentes ou repetidos.
+- valores nulos ou indefinidos;
+- lista vazia;
+- lista com um item;
+- lista com muitos itens;
+- datas no limite;
+- valores mínimos e máximos;
+- strings vazias ou muito longas;
+- caracteres especiais;
+- diferenças de timezone;
+- duplicidade de dados;
+- estados concorrentes ou repetidos.
 
 ### Mocks e dependências
 
 Ao usar mocks:
 
-- Simular apenas o necessário.
-- Evitar mocks excessivamente complexos.
-- Manter dados de teste claros e realistas.
-- Isolar chamadas externas, como APIs, banco, autenticação, storage ou serviços de terceiros.
-- Garantir que mocks não escondam problemas reais de contrato.
+- simular apenas o necessário;
+- evitar mocks excessivamente complexos;
+- manter dados de teste claros e realistas;
+- isolar chamadas externas como APIs, banco, autenticação, storage ou serviços de terceiros;
+- garantir que mocks não escondam problemas reais de contrato.
 
-### Testes de frontend
-
-Em interfaces, validar:
-
-- Renderização dos elementos principais.
-- Estados de loading, erro, vazio e sucesso.
-- Interações do usuário.
-- Campos obrigatórios.
-- Mensagens de erro.
-- Navegação esperada.
-- Acessibilidade básica, como labels, roles e foco, quando aplicável.
-- Não depender de textos instáveis quando houver seletores mais adequados.
-
-### Testes de backend
-
-Em backend, validar:
-
-- Entrada da função ou endpoint.
-- Status code esperado.
-- Payload de resposta.
-- Tratamento de erro.
-- Validações obrigatórias.
-- Persistência ou atualização de dados.
-- Regras de autorização.
-- Efeitos colaterais esperados, como filas, eventos, logs ou chamadas externas.
-
-### Testes de regressão
-
-Para bugs corrigidos:
-
-- Criar pelo menos um teste que falharia antes da correção.
-- Nomear o cenário de forma clara.
-- Validar o comportamento corrigido.
-- Evitar testar apenas a implementação da correção.
+---
 
 ## Processo recomendado
 
-Ao gerar testes:
-
 1. Ler o código alterado e entender o comportamento esperado.
-2. Identificar riscos de regressão.
-3. Verificar padrões de teste existentes no projeto.
-4. Criar casos positivos, negativos e de borda.
-5. Usar mocks apenas quando necessário.
-6. Rodar ou orientar a execução dos testes.
-7. Ajustar testes frágeis ou redundantes.
-8. Informar lacunas que ainda exigem validação manual.
+2. Identificar critérios de aceite no SDD.
+3. Identificar riscos de regressão.
+4. Verificar padrões de teste existentes no projeto.
+5. Criar casos positivos, negativos e de borda.
+6. Usar mocks apenas quando necessário.
+7. Rodar ou orientar a execução dos testes.
+8. Ajustar testes frágeis ou redundantes.
+9. Informar lacunas que ainda exigem validação manual.
+
+---
 
 ## Formato de resposta esperado
 
-Resumo:
+## Resumo
 
-- O que foi testado.
+O que foi testado.
 
-Testes criados/sugeridos:
+## Testes criados ou sugeridos
 
-- Lista objetiva dos cenários cobertos.
+Lista objetiva dos cenários cobertos.
 
-Casos considerados:
+## Casos considerados
 
-- Positivos, negativos e borda.
+Positivos, negativos e borda.
 
-Como executar:
+## Como executar
 
-- Comando ou orientação para rodar os testes.
+Comando ou orientação para rodar os testes.
 
-Riscos restantes:
+## Riscos restantes
 
-- Pontos que ainda precisam de validação manual ou integração.
+Pontos que ainda precisam de validação manual ou integração.

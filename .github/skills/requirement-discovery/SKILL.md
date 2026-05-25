@@ -1,150 +1,111 @@
 ---
 name: requirement-discovery
-description: Use esta skill ao receber uma historia, ideia, pedido de funcionalidade ou requisito incompleto que precise ser aprofundado antes da implementacao, definindo escopo, criterios de aceite, impactos no SDD e testes necessarios para considerar o requisito atendido.
+description: Use esta skill quando uma solicitação estiver vaga, incompleta ou ambígua e for necessário transformar a ideia em requisito, escopo, critérios de aceite, validações e pendências antes da implementação.
 ---
 
 # Requirement Discovery
 
-Use esta skill para transformar uma historia, ideia ou pedido inicial em requisito claro, verificavel e pronto para orientar implementacao.
+Use esta skill para aprofundar solicitações antes da implementação, especialmente quando houver risco de interpretar errado o requisito.
 
-Ela deve ser usada antes de implementar quando a solicitacao ainda estiver vaga, incompleta, sem criterio de aceite ou sem testes esperados.
+---
 
 ## Objetivo
 
-Ajudar a definir o requisito no SDD a partir de uma historia ou necessidade, conectando:
+Transformar uma solicitação inicial em um requisito claro, delimitado, testável e rastreável, sem inventar regra de negócio ou ampliar escopo sem confirmação.
 
-- problema;
-- usuario ou ator;
-- objetivo;
-- regra de negocio;
-- escopo;
-- criterios de aceite;
-- estados de interface, quando houver;
-- validacoes e testes necessarios.
+---
 
-## Entradas esperadas
+## Quando usar
 
-Quando possivel, colete ou inferira com cuidado:
+Use esta skill quando:
 
-- historia ou pedido original;
-- usuario impactado;
-- problema a resolver;
-- resultado esperado;
-- restricoes conhecidas;
-- fluxos principais;
-- fluxos alternativos;
-- casos de erro;
-- dados envolvidos;
-- dependencias externas;
-- riscos ou premissas.
+- a solicitação estiver vaga;
+- houver mais de uma interpretação possível;
+- faltarem critérios de aceite;
+- a mudança afetar regra de negócio;
+- a mudança afetar dados, permissões, integrações ou fluxo crítico;
+- o pedido exigir decisão de produto ou usuário final;
+- o agente precisar delimitar escopo antes de implementar;
+- o SDD não tiver informação suficiente para orientar a tarefa.
 
-Quando a informacao nao existir, registre como lacuna ou pergunta. Nao invente requisito como se fosse validado.
+---
 
-## Processo recomendado
+## Regras principais
 
-1. Reescrever a historia em linguagem objetiva.
-2. Identificar o objetivo do usuario e o valor esperado.
-3. Separar requisito funcional de requisito nao funcional.
-4. Definir o que esta dentro e fora do escopo.
-5. Mapear regras, restricoes e excecoes.
-6. Definir criterios de aceite verificaveis.
-7. Derivar testes que comprovem atendimento do requisito.
-8. Indicar onde registrar a informacao no SDD.
+- Não transformar ideia vaga em requisito validado sem explicitar premissas.
+- Não inventar comportamento esperado.
+- Não ampliar escopo além do pedido original.
+- Não alterar regra de negócio sem confirmação.
+- Quando a dúvida for pequena e não alterar regra, contrato, dados ou escopo, registrar premissa conservadora e seguir.
+- Quando a dúvida for relevante, parar e pedir confirmação.
+- Não editar linha por linha; propor alterações em bloco único/consolidado.
 
-## Checklist de aprofundamento
+---
 
-### Contexto
+## Checklist de descoberta
 
-- Qual problema esta sendo resolvido?
-- Quem e impactado?
-- Por que isso e necessario agora?
-- Existe comportamento anterior que deve ser preservado?
+Antes de implementar, identificar:
 
-### Escopo
+- intenção principal do usuário;
+- problema que precisa ser resolvido;
+- usuário ou perfil impactado;
+- fluxo atual;
+- comportamento esperado;
+- comportamento fora do escopo;
+- regra de negócio envolvida;
+- dados ou entidades impactadas;
+- permissões envolvidas;
+- integrações impactadas;
+- estados de interface;
+- mensagens de erro ou sucesso;
+- critérios de aceite;
+- validações esperadas;
+- riscos e premissas.
 
-- O que deve ser entregue?
-- O que explicitamente nao sera entregue?
-- Existe mudanca de regra de negocio?
-- Existe impacto em dados, integracoes, permissao ou interface?
+---
 
-### Comportamento esperado
+## Perguntas úteis
 
-- Qual e o fluxo principal?
-- Quais sao os fluxos alternativos?
-- O que acontece em erro?
-- O que acontece em estado vazio?
-- O que acontece com dados invalidos?
-- O que acontece com permissao insuficiente?
+Use apenas as perguntas necessárias. Não faça entrevista longa quando uma premissa conservadora resolver.
 
-### Criterios de aceite
+- Qual comportamento deve mudar?
+- Qual comportamento deve permanecer igual?
+- Em quais telas, fluxos ou perfis isso se aplica?
+- Existe regra de negócio validada para esse caso?
+- O que deve acontecer em erro, vazio, loading, sucesso ou permissão negada?
+- Como saberemos que a tarefa foi concluída corretamente?
+- Quais testes ou validações comprovam o aceite?
 
-Cada criterio deve ser observavel e testavel.
+---
 
-Preferir formato:
+## Resultado esperado
 
-```text
-Dado [contexto], quando [acao], entao [resultado esperado].
-```
+Ao final da descoberta, produzir:
 
-Evitar criterios vagos como:
+## Entendimento
 
-- "deve funcionar bem";
-- "deve ser intuitivo";
-- "deve ser rapido";
-- "deve melhorar a experiencia".
-
-Quando houver requisito nao funcional, transforme em criterio mensuravel ou verificavel.
-
-### Testes necessarios
-
-Para considerar o requisito atendido, definir:
-
-- teste do fluxo principal;
-- teste de validacao ou entrada invalida;
-- teste de estado vazio, erro ou permissao, quando aplicavel;
-- teste de regressao se houver comportamento existente;
-- teste de acessibilidade se houver interface;
-- validacao manual quando nao houver automacao disponivel.
-
-## Saida esperada
-
-Ao aplicar esta skill, produza:
-
-## Requisito refinado
-
-Descricao objetiva do requisito.
+Resumo da intenção principal.
 
 ## Escopo
 
-- Dentro:
-- Fora:
+Dentro e fora do escopo.
 
-## Regras e premissas
+## Requisito proposto
 
-- Regras validadas:
-- Premissas:
-- Lacunas:
+Descrição clara do comportamento esperado.
 
-## Criterios de aceite
+## Critérios de aceite
 
-- Dado ..., quando ..., entao ...
+Cenários verificáveis, preferencialmente no formato Dado / Quando / Então.
 
-## Testes para aprovacao
+## Validações esperadas
 
-- Cenario:
-- Tipo de teste:
-- Resultado esperado:
+Testes automatizados, revisão manual ou verificações técnicas.
 
-## Atualizacao no SDD
+## Premissas e riscos
 
-- `docs/SDD-origin.md`: informacoes que representam regra ou requisito validado.
-- `docs/SDD-dev.md`: informacoes da implementacao atual, validacoes e decisoes tomadas.
+Pontos assumidos ou dependentes de confirmação.
 
-## Regras
+## Atualização SDD
 
-- Nao implementar antes de entender o requisito minimo.
-- Nao transformar suposicao em requisito validado.
-- Nao remover requisito anterior sem justificativa.
-- Nao definir teste apenas para detalhe interno.
-- Priorizar comportamento observavel pelo usuario ou pelo contrato da API.
-- Registrar lacunas de forma explicita.
+O que deve entrar em `SDD-origin.md` e/ou `SDD-dev.md`.
