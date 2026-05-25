@@ -1,0 +1,2 @@
+-Evitar CSS inline.
+-Priorizar componentes reutilizáveis.
