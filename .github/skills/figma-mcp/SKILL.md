@@ -436,6 +436,59 @@ Antes de baixar assets, o agente deve listar quais arquivos serão gerados e jus
 
 Se houver dúvida se um elemento deve ser exportado como imagem ou reproduzido em código, priorizar reprodução em código e registrar a decisão.
 
+## Regra obrigatória — separação da pasta assets por tipo
+
+O agente deve organizar os assets do projeto separando imagens rasterizadas e arquivos SVG em pastas distintas.
+
+A pasta de assets deve seguir, sempre que aplicável, uma estrutura como:
+
+```text
+assets/
+  img/
+  svg/
+```
+
+ou, conforme a stack do projeto:
+
+```text
+src/
+  assets/
+    img/
+    svg/
+```
+
+ou:
+
+```text
+public/
+  assets/
+    img/
+    svg/
+```
+
+Regras obrigatórias:
+
+- Arquivos `.svg` devem ser salvos em `assets/svg/`.
+- Logos, ícones, marcas e ilustrações vetoriais em SVG devem ficar em `assets/svg/`.
+- Arquivos `.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.avif` e similares devem ficar em `assets/img/`.
+- Não misturar SVGs e imagens rasterizadas na mesma pasta.
+- Não salvar assets diretamente em `assets/` sem subpasta.
+- Não criar nomes genéricos como `image-1`, `vector-2`, `asset-3`.
+- Atualizar todos os imports e referências após mover arquivos.
+- Se o projeto já tiver uma estrutura própria, adaptar a organização mantendo a separação entre `img` e `svg`.
+
+Exemplos:
+
+```text
+src/assets/img/hero-login-background.png
+src/assets/img/card-dashboard-illustration.webp
+src/assets/svg/logo-sesi.svg
+src/assets/svg/icon-arrow-right.svg
+src/assets/svg/logo-fiergs.svg
+```
+
+Se houver dúvida sobre o tipo do asset, o agente deve verificar a extensão e o conteúdo antes de mover ou renomear.
+
 ## Regra para limpeza e renomeação de assets
 
 Após usar o Figma MCP, o agente deve revisar os assets gerados e organizar os arquivos para evitar acúmulo de imagens desnecessárias no projeto.
@@ -449,6 +502,7 @@ O agente deve:
 - Renomear assets utilizados com nomes semânticos, curtos e padronizados.
 - Atualizar todas as referências aos assets renomeados.
 - Manter o SDD atualizado com as alterações realizadas.
+- Separar assets por tipo, mantendo SVGs em `assets/svg/` e imagens rasterizadas em `assets/img/`.
 
 Antes de excluir ou renomear arquivos, o agente deve gerar um relatório com:
 
@@ -557,6 +611,7 @@ Antes de alterar código:
 - Defina rotas, props, estados e integrações.
 - Liste assets que realmente precisam ser baixados.
 - Atualize o SDD com decisões relevantes.
+- Defina a estrutura de assets separando `img/` e `svg/`.
 
 ### Etapa 4 — Implementação
 
@@ -585,6 +640,7 @@ Após implementar uma tela ou componente com Figma MCP, o agente deve:
 - Renomear assets utilizados com nomes semânticos.
 - Atualizar todos os imports e caminhos.
 - Registrar as alterações no SDD.
+- Mover SVGs para `assets/svg/` e imagens rasterizadas para `assets/img/`.
 
 A limpeza não deve ser feita às cegas. O agente deve preservar qualquer arquivo cujo uso não esteja completamente claro.
 
@@ -712,6 +768,8 @@ Sempre que possível, reproduza esses elementos com CSS, Tailwind, tokens ou var
 Após listar e justificar os assets necessários, implemente usando apenas esses arquivos.
 Não editar linha por linha; aplicar alterações em bloco único/consolidado.
 Atualize o SDD com as decisões realizadas.
+Organize os assets baixados separando arquivos SVG em assets/svg/ e imagens rasterizadas em assets/img/.
+Não misture SVG, PNG, JPG, WEBP ou outros formatos na mesma pasta.
 ```
 
 ### Limpar e renomear assets após uso do Figma MCP
@@ -762,6 +820,12 @@ Pastas a analisar:
 - pages/
 - styles/
 - ou qualquer pasta equivalente usada pelo projeto.
+
+Além de limpar e renomear, reorganize os assets por tipo:
+- SVGs em assets/svg/
+- PNG, JPG, JPEG, WEBP, GIF, AVIF e similares em assets/img/
+
+Atualize todos os imports e referências após mover os arquivos.
 
 Se a estrutura do projeto não estiver clara, primeiro identifique onde os assets estão armazenados e onde são referenciados antes de alterar qualquer arquivo.
 ```
@@ -957,6 +1021,9 @@ Interrompa ou sinalize risco quando encontrar:
 - A mesma logo foi baixada várias vezes com nomes diferentes.
 - A logo do footer ficou visualmente diferente da logo do Figma.
 - O agente assumiu que uma marca “parecida com texto” poderia ser implementada como texto comum.
+- SVGs e imagens rasterizadas foram salvos na mesma pasta.
+- Assets foram mantidos soltos diretamente em `assets/`.
+- Imports não foram atualizados após mover arquivos entre `img/` e `svg/`.
 
 ## Resultado esperado
 
