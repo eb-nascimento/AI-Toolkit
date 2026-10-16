@@ -1,120 +1,105 @@
 # AI Toolkit
 
-Repositório-base para iniciar novos projetos com uso organizado de IA no desenvolvimento de software.
+[Português](#português) · [English](#english)
 
-O foco é fornecer uma estrutura reutilizável para:
+## Português
 
-- SDD (Spec Driven Development);
-- agentes de IA;
-- prompts reutilizáveis;
-- skills;
-- GitHub Copilot / Codex / VS Code Agents;
-- MCP e fluxos assistidos por IA;
-- revisão, testes e acessibilidade.
+Base reutilizável de agentes, prompts, skills e documentação para organizar o desenvolvimento de software assistido por IA.
 
----
+Criado como estudo de fluxos com IA, MCP e **SDD (Spec Driven Development)**, o toolkit reúne orientações que considero úteis para transformar requisitos em implementações com escopo, contexto e validações explícitos. Entre os interesses que motivaram o estudo está o desenvolvimento frontend a partir de designs do Figma.
 
-## Objetivo
+### O que você encontra aqui
 
-Servir como ponto de partida para novos projetos, mantendo instruções, agentes, prompts, skills e os dois arquivos SDD que serão preenchidos durante a implementação real.
+- Agentes especializados em requisitos e SDD, frontend, testes e revisão de código.
+- Skills para descoberta de requisitos, acessibilidade frontend e geração de testes.
+- Prompts reutilizáveis para atualizar documentação e revisar sua consistência.
+- Instruções para agentes e GitHub Copilot.
+- Documentos-base para registrar requisitos e implementação.
 
-Este repositório não é uma aplicação executável. Ele é uma base de trabalho para copiar, adaptar ou usar como referência em projetos futuros.
-
----
-
-## Estrutura
+### Organização
 
 ```text
 .github/
-  copilot-instructions.md
-  prompts/
-    atualizar-sdd.prompt.md
-    revisar-repositorio-sdd.prompt.md
   agents/
-    sdd-specialist.agent.md
-    frontend-specialist.agent.md
-    test-engineer.agent.md
-    code-reviewer.agent.md
+  prompts/
   skills/
-    frontend-accessibility/
-      SKILL.md
-    test-generation/
-      SKILL.md
-    requirement-discovery/
-      SKILL.md
-
+  copilot-instructions.md
 docs/
   SDD-origin.md
   SDD-dev.md
-
 AGENTS.md
-README.md
-.editorconfig
-.gitattributes
 ```
 
----
+### Como utilizar
 
-## Fluxo SDD
+1. Copie a estrutura relevante para o seu projeto.
+2. Preencha `docs/SDD-origin.md` com contexto, requisitos, regras e critérios de aceite validados.
+3. Use `docs/SDD-dev.md` para registrar a implementação atual, decisões, validações e pendências.
+4. Adapte os agentes, prompts e skills ao domínio e à ferramenta utilizada.
+5. Trabalhe com tarefas delimitadas e confira o resultado antes de atualizar a documentação.
 
-Este repositório mantém somente dois arquivos SDD:
+Os dois documentos SDD são os modelos canônicos da estrutura; não é necessário criar cópias `SDD-*.template.md`.
 
-- `docs/SDD-origin.md`: fonte de verdade do projeto real, preenchida com requisitos, regras, fluxos e decisões validadas.
-- `docs/SDD-dev.md`: registro da implementação atual, preenchido a cada tarefa com escopo tratado, decisões, arquivos alterados, validações e pendências.
+### Princípios
 
-Não crie arquivos `SDD-*.template.md` separados. Os dois arquivos acima já são os modelos canônicos que devem ser preenchidos no projeto que usar esta base.
+- Esclarecer requisitos antes de implementar.
+- Manter o escopo e os critérios de aceite visíveis.
+- Priorizar simplicidade, acessibilidade e validações relevantes.
+- Documentar o que foi implementado e explicitar o que continua pendente.
+- Revisar as sugestões da IA com contexto e julgamento técnico.
 
-Toda tarefa de desenvolvimento deve passar por:
+### Estágio e limites
 
-1. entendimento do requisito;
-2. delimitação de escopo;
-3. critérios de aceite;
-4. implementação ou orientação técnica;
-5. validações;
-6. atualização do SDD quando necessário.
-
----
-
-## Uso em Novo Projeto
-
-1. Copie esta estrutura para o novo repositório.
-2. Preencha `docs/SDD-origin.md` com o contexto e os requisitos validados do projeto.
-3. Use `docs/SDD-dev.md` para registrar cada implementação.
-4. Ajuste agentes, prompts e skills apenas quando o projeto tiver regras específicas.
-5. Mantenha `SDD-origin.md` como fonte de verdade e `SDD-dev.md` como registro da tarefa atual.
+Este é um estudo e uma base de trabalho adaptável, não uma aplicação executável. A forma de carregar agentes, prompts e skills depende da ferramenta utilizada, como Codex ou GitHub Copilot no VS Code. Configurações de MCP e permissões devem ser ajustadas ao ambiente de cada projeto.
 
 ---
 
-## Agentes
+## English
 
-- `sdd-specialist`: guardião de requisitos, escopo, critérios de aceite e SDD.
-- `frontend-specialist`: especialista em interface, componentização, responsividade e acessibilidade.
-- `test-engineer`: especialista em testes, validação e prevenção de regressão.
-- `code-reviewer`: revisor técnico com foco em arquitetura, segurança, qualidade e aprendizado.
+A reusable collection of agents, prompts, skills, and documentation for organizing AI-assisted software development.
 
----
+Created as a study of AI workflows, MCP, and **Spec Driven Development (SDD)**, this toolkit brings together guidance I find useful for turning requirements into implementations with explicit scope, context, and validation. One motivation behind the study is frontend development based on Figma designs.
 
-## Skills
+### Contents
 
-- `frontend-accessibility`: revisão e melhoria de acessibilidade frontend.
-- `test-generation`: criação e revisão de testes automatizados.
-- `requirement-discovery`: descoberta e refinamento de requisitos antes da implementação.
+- Specialized agents for requirements and SDD, frontend, testing, and code review.
+- Skills for requirement discovery, frontend accessibility, and test generation.
+- Reusable prompts for updating documentation and reviewing its consistency.
+- Instructions for agents and GitHub Copilot.
+- Base documents for recording requirements and implementation.
 
----
+### Structure
 
-## Prompts Reutilizáveis
+```text
+.github/
+  agents/
+  prompts/
+  skills/
+  copilot-instructions.md
+docs/
+  SDD-origin.md
+  SDD-dev.md
+AGENTS.md
+```
 
-- `atualizar-sdd.prompt.md`: usado para manter documentação SDD atualizada.
-- `revisar-repositorio-sdd.prompt.md`: usado para revisar consistência entre SDD, agentes, prompts e skills.
+### Usage
 
----
+1. Copy the relevant structure into your project.
+2. Fill in `docs/SDD-origin.md` with validated context, requirements, rules, and acceptance criteria.
+3. Use `docs/SDD-dev.md` to record the current implementation, decisions, validation, and remaining work.
+4. Adapt agents, prompts, and skills to your domain and tool.
+5. Work on clearly scoped tasks and check the results before updating the documentation.
 
-## Boas Práticas
+The two SDD documents are the canonical starting documents; separate `SDD-*.template.md` copies are unnecessary.
 
-- Não inventar requisitos.
-- Não alterar regra de negócio sem confirmação.
-- Não remover histórico funcional.
-- Não registrar no SDD comportamento não implementado.
-- Não editar linha por linha; aplicar alterações em bloco único/consolidado.
-- Priorizar soluções simples, seguras, testáveis e rastreáveis.
-- Informar limitações e validações pendentes.
+### Principles
+
+- Clarify requirements before implementation.
+- Keep scope and acceptance criteria visible.
+- Favor simplicity, accessibility, and relevant validation.
+- Document implemented behavior and make remaining work explicit.
+- Review AI suggestions using project context and technical judgment.
+
+### Status and limitations
+
+This is a study and an adaptable workflow foundation, not an executable application. Loading agents, prompts, and skills depends on the chosen tool, such as Codex or GitHub Copilot in VS Code. MCP settings and permissions must be adapted to each project's environment.
